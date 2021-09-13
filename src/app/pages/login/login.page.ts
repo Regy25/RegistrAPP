@@ -39,14 +39,11 @@ export class LoginPage implements OnInit {
   }
 
   public validarUsuario(usuario: Usuario): boolean {
-
     const mensajeError = usuario.validarUsuario();
-
     if (mensajeError) {
       this.mostrarMensaje(mensajeError);
       return false;
     }
-
     return true;
   }
 

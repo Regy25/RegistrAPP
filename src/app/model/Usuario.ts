@@ -33,7 +33,7 @@ export class Usuario {
             return 'La contraseña debe ser numérica de 4 dígitos.';
         }
         if (this.password.trim() === this.pass) {
-            return '';   
+            return '';
         } else {
         return 'Contraseña Incorrecta';
         }
