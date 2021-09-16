@@ -438,6 +438,79 @@ const openURL = async (url, ev, direction, animation) => {
 
 
 
+/***/ }),
+
+/***/ 2844:
+/*!**********************************!*\
+  !*** ./src/app/model/Usuario.ts ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Usuario": () => (/* binding */ Usuario)
+/* harmony export */ });
+class Usuario {
+    constructor() {
+        this.nombreUsuario = '';
+        this.password = '';
+        this.User = 'Jose';
+        this.pass = '1234';
+        this.newPass = '';
+        this.confirmarPass = '';
+    }
+    ValidarNombreUsuario() {
+        if (this.nombreUsuario.trim() === '') {
+            return 'Debe ingresar un nombre de usuario';
+        }
+        if (this.nombreUsuario.length < 3 || this.nombreUsuario.length > 8) {
+            return 'El nombre de usuario debe tener entre 3 y 8 caracteres';
+        }
+        if (this.nombreUsuario.trim() === this.User) {
+            return '';
+        }
+        else {
+            return 'Usuario incorrecto';
+        }
+    }
+    validarPassword() {
+        if (this.password.trim() === '') {
+            return 'Para entrar al sistema debe ingresar la contraseña.';
+        }
+        for (let i = 0; i < this.password.length; i++) {
+            if ('0123456789'.indexOf(this.password.charAt(i)) === -1) {
+                return 'La contraseña debe ser numérica.';
+            }
+        }
+        if (this.password.length !== 4) {
+            return 'La contraseña debe ser numérica de 4 dígitos.';
+        }
+        if (this.password.trim() === this.pass) {
+            return '';
+        }
+        else {
+            return 'Contraseña Incorrecta';
+        }
+    }
+    validarNewPass() {
+        if (this.newPass === this.confirmarPass) {
+            this.pass = this.newPass;
+            return '';
+        }
+        else {
+            return 'Contraseñas no coinciden';
+        }
+    }
+    validarCambioPass() {
+        return this.ValidarNombreUsuario() || this.validarNewPass();
+    }
+    validarUsuario() {
+        return this.ValidarNombreUsuario() || this.validarPassword();
+    }
+}
+
+
 /***/ })
 
 }]);

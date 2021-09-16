@@ -10,13 +10,39 @@ import { Usuario } from 'src/app/model/Usuario';
 })
 export class RecuperarPage implements OnInit {
 
-  constructor(private router: Router, private toastController:ToastController) { }
+  public usuario: Usuario;
 
-  ngOnInit() {
+  constructor(private router: Router, private toastController:ToastController) {
+    this.usuario = new Usuario();
+    this.usuario.nombreUsuario = '';
+    this.usuario.password = '';
+    this.usuario.newPass = '';
+    this.usuario.confirmarPass = '';
   }
 
-  public cambiar(): void {
-    this.router.navigate(['/login']);
+  ngOnInit(): void {
+  }
+
+  public cambiarPass(): void {
+    if(!this.validarNewPass(this.usuario)) {
+      return;
+    }
+    this.mostrarMensaje('Contraseña Cambiada!');
+    const navigationExtras: NavigationExtras = {
+      state: {
+        user: this.usuario
+      }
+    };
+    this.router.navigate(['/login'], navigationExtras);
+  }
+
+  public validarNewPass(usuario: Usuario): boolean {
+    const mensajeError = usuario.validarCambioPass();
+    if (mensajeError) {
+      this.mostrarMensaje(mensajeError);
+      return false;
+    }
+    return true;
   }
 
   async mostrarMensaje(mensaje: string, duracion?: number) {
@@ -26,7 +52,5 @@ export class RecuperarPage implements OnInit {
       });
     toast.present();
   }
-
-  
 
 }

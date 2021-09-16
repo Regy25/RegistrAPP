@@ -51,11 +51,11 @@ const routes = [
     },
     {
         path: 'login',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_pages_login_login_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./pages/login/login.module */ 1053)).then(m => m.LoginPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_pages_login_login_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./pages/login/login.module */ 1053)).then(m => m.LoginPageModule)
     },
     {
         path: 'recuperar',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_pages_recuperar_recuperar_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./pages/recuperar/recuperar.module */ 9649)).then(m => m.RecuperarPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_pages_recuperar_recuperar_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./pages/recuperar/recuperar.module */ 9649)).then(m => m.RecuperarPageModule)
     },
 ];
 let AppRoutingModule = class AppRoutingModule {

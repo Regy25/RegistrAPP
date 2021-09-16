@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationExtras } from '@angular/router';
+import { Router, NavigationExtras,ActivatedRoute } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { Usuario } from 'src/app/model/Usuario';
 
@@ -15,10 +15,17 @@ export class LoginPage implements OnInit {
 
   public usuario: Usuario;
 
-  constructor(private router: Router, private toastController: ToastController,private qrScanner: QRScanner) {
-    this.usuario = new Usuario();
-    this.usuario.nombreUsuario = '';
-    this.usuario.password = '';
+  constructor(private router: Router, private toastController: ToastController,private qrScanner: QRScanner,private activeroute: ActivatedRoute) {
+    this.activeroute.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.usuario = this.router.getCurrentNavigation().extras.state.user;
+        console.log(this.usuario)
+      }else {
+        this.usuario = new Usuario();
+        this.usuario.nombreUsuario = '';
+        this.usuario.password = '';
+      }
+    });
   }
 
   ngOnInit() {

@@ -1,75 +1,5 @@
 (self["webpackChunkRegistrAPP"] = self["webpackChunkRegistrAPP"] || []).push([["src_app_pages_login_login_module_ts"],{
 
-/***/ 2844:
-/*!**********************************!*\
-  !*** ./src/app/model/Usuario.ts ***!
-  \**********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Usuario": () => (/* binding */ Usuario)
-/* harmony export */ });
-class Usuario {
-    constructor() {
-        this.nombreUsuario = '';
-        this.password = '';
-        this.User = 'Jose';
-        this.pass = '1234';
-        this.newPass = '1111';
-        this.confirmarPass = '2222';
-    }
-    ValidarNombreUsuario() {
-        if (this.nombreUsuario.trim() === '') {
-            return 'Debe ingresar un nombre de usuario';
-        }
-        if (this.nombreUsuario.length < 3 || this.nombreUsuario.length > 8) {
-            return 'El nombre de usuario debe tener entre 3 y 8 caracteres';
-        }
-        if (this.nombreUsuario.trim() === this.User) {
-            return '';
-        }
-        else {
-            return 'Usuario incorrecto';
-        }
-    }
-    validarPassword() {
-        if (this.password.trim() === '') {
-            return 'Para entrar al sistema debe ingresar la contraseña.';
-        }
-        for (let i = 0; i < this.password.length; i++) {
-            if ('0123456789'.indexOf(this.password.charAt(i)) === -1) {
-                return 'La contraseña debe ser numérica.';
-            }
-        }
-        if (this.password.length !== 4) {
-            return 'La contraseña debe ser numérica de 4 dígitos.';
-        }
-        if (this.password.trim() === this.pass) {
-            return '';
-        }
-        else {
-            return 'Contraseña Incorrecta';
-        }
-    }
-    cambiarPass() {
-        if (this.newPass === this.confirmarPass) {
-            this.pass = this.newPass;
-            return '';
-        }
-        else {
-            return 'Contraseñas no coinciden';
-        }
-    }
-    validarUsuario() {
-        return this.ValidarNombreUsuario() || this.validarPassword();
-    }
-}
-
-
-/***/ }),
-
 /***/ 3403:
 /*!*****************************************************!*\
   !*** ./src/app/pages/login/login-routing.module.ts ***!
@@ -180,13 +110,22 @@ __webpack_require__.r(__webpack_exports__);
 // importacion permisos camara
 
 let LoginPage = class LoginPage {
-    constructor(router, toastController, qrScanner) {
+    constructor(router, toastController, qrScanner, activeroute) {
         this.router = router;
         this.toastController = toastController;
         this.qrScanner = qrScanner;
-        this.usuario = new src_app_model_Usuario__WEBPACK_IMPORTED_MODULE_2__.Usuario();
-        this.usuario.nombreUsuario = '';
-        this.usuario.password = '';
+        this.activeroute = activeroute;
+        this.activeroute.queryParams.subscribe(params => {
+            if (this.router.getCurrentNavigation().extras.state) {
+                this.usuario = this.router.getCurrentNavigation().extras.state.user;
+                console.log(this.usuario);
+            }
+            else {
+                this.usuario = new src_app_model_Usuario__WEBPACK_IMPORTED_MODULE_2__.Usuario();
+                this.usuario.nombreUsuario = '';
+                this.usuario.password = '';
+            }
+        });
     }
     ngOnInit() {
         // this.usuario.nombreUsuario = 'Jose';
@@ -228,7 +167,8 @@ let LoginPage = class LoginPage {
 LoginPage.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__.Router },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__.ToastController },
-    { type: _ionic_native_qr_scanner_ngx__WEBPACK_IMPORTED_MODULE_3__.QRScanner }
+    { type: _ionic_native_qr_scanner_ngx__WEBPACK_IMPORTED_MODULE_3__.QRScanner },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__.ActivatedRoute }
 ];
 LoginPage = (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__decorate)([
     (0,_angular_core__WEBPACK_IMPORTED_MODULE_7__.Component)({

@@ -3,8 +3,8 @@ export class Usuario {
     public password = '';
     public User = 'Jose';
     public pass = '1234';
-    public newPass = '1111';
-    public confirmarPass = '2222';
+    public newPass = '';
+    public confirmarPass = '';
 
     public ValidarNombreUsuario(): string {
         if (this.nombreUsuario.trim() === '') {
@@ -39,13 +39,17 @@ export class Usuario {
         }
     }
 
-    public cambiarPass(): string {
+    public validarNewPass(): string {
         if (this.newPass===this.confirmarPass) {
             this.pass=this.newPass;
             return '';
         } else {
             return 'Contraseñas no coinciden';
         }
+    }
+
+    public validarCambioPass(): string {
+        return this.ValidarNombreUsuario() || this.validarNewPass();
     }
 
     public validarUsuario(): string {

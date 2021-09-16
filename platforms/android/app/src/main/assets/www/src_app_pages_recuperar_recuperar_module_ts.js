@@ -92,12 +92,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "RecuperarPage": () => (/* binding */ RecuperarPage)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tslib */ 4762);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tslib */ 4762);
 /* harmony import */ var _raw_loader_recuperar_page_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !raw-loader!./recuperar.page.html */ 6705);
 /* harmony import */ var _recuperar_page_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./recuperar.page.scss */ 4347);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 7716);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ 9895);
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ 476);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ 9895);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ 476);
+/* harmony import */ var src_app_model_Usuario__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/model/Usuario */ 2844);
+
 
 
 
@@ -108,14 +110,36 @@ let RecuperarPage = class RecuperarPage {
     constructor(router, toastController) {
         this.router = router;
         this.toastController = toastController;
+        this.usuario = new src_app_model_Usuario__WEBPACK_IMPORTED_MODULE_2__.Usuario();
+        this.usuario.nombreUsuario = '';
+        this.usuario.password = '';
+        this.usuario.newPass = '';
+        this.usuario.confirmarPass = '';
     }
     ngOnInit() {
     }
-    cambiar() {
-        this.router.navigate(['/login']);
+    cambiarPass() {
+        if (!this.validarNewPass(this.usuario)) {
+            return;
+        }
+        this.mostrarMensaje('Contraseña Cambiada!');
+        const navigationExtras = {
+            state: {
+                user: this.usuario
+            }
+        };
+        this.router.navigate(['/login'], navigationExtras);
+    }
+    validarNewPass(usuario) {
+        const mensajeError = usuario.validarCambioPass();
+        if (mensajeError) {
+            this.mostrarMensaje(mensajeError);
+            return false;
+        }
+        return true;
     }
     mostrarMensaje(mensaje, duracion) {
-        return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(this, void 0, void 0, function* () {
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__awaiter)(this, void 0, void 0, function* () {
             const toast = yield this.toastController.create({
                 message: mensaje,
                 duration: duracion ? duracion : 2000
@@ -125,11 +149,11 @@ let RecuperarPage = class RecuperarPage {
     }
 };
 RecuperarPage.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__.Router },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__.ToastController }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__.Router },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.ToastController }
 ];
-RecuperarPage = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_5__.Component)({
+RecuperarPage = (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_6__.Component)({
         selector: 'app-recuperar',
         template: _raw_loader_recuperar_page_html__WEBPACK_IMPORTED_MODULE_0__.default,
         styles: [_recuperar_page_scss__WEBPACK_IMPORTED_MODULE_1__.default]
@@ -166,7 +190,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-content>\r\n  <!-- Login -->\r\n  <div class=\"ion-padding-vertical\">\r\n    <ion-card class=\"ion-text-center ion-padding-vertical\">\r\n      <ion-card-title class=\"ion-text-center\">\r\n        <ion-label>\r\n          <h2 >¡Inicie Sesion para <br>\r\n            registrar Asistencia!</h2>\r\n          <br>\r\n        </ion-label>\r\n      </ion-card-title>\r\n      <ion-card-content>\r\n        <ion-item>\r\n          <ion-label position=\"floating\">Nueva Contraseña</ion-label>\r\n          <ion-input type=\"text\"></ion-input>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label position=\"floating\">Confirmar Contraseña</ion-label>\r\n          <ion-input type=\"password\"></ion-input>\r\n        </ion-item>\r\n        <ion-row>\r\n          <ion-col size=\"12\">\r\n            <br>\r\n            <ion-button shape=\"block\" (click)=\"cambiar()\">Cambiar contraseña</ion-button>\r\n          </ion-col>\r\n        </ion-row>\r\n      </ion-card-content>\r\n    </ion-card>\r\n  </div>\r\n</ion-content>\r\n");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-content>\r\n  <!-- Login -->\r\n  <div class=\"ion-padding-vertical\">\r\n    <ion-card class=\"ion-text-center ion-padding-vertical\">\r\n      <ion-card-title class=\"ion-text-center\">\r\n        <ion-label>\r\n          <h2 > Complete la informacion <br>\r\n            para cambiar la contraseña </h2>\r\n          <br>\r\n        </ion-label>\r\n      </ion-card-title>\r\n      <ion-card-content>\r\n        <ion-item>\r\n          <ion-label position=\"floating\">Usuario</ion-label>\r\n          <ion-input type=\"text\" [(ngModel)]=\"usuario.nombreUsuario\"></ion-input>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label position=\"floating\">Nueva Contraseña</ion-label>\r\n          <ion-input type=\"password\" [(ngModel)]=\"usuario.newPass\"></ion-input>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label position=\"floating\">Confirmar Contraseña</ion-label>\r\n          <ion-input type=\"password\" [(ngModel)]=\"usuario.confirmarPass\"></ion-input>\r\n        </ion-item>\r\n        <ion-row>\r\n          <ion-col size=\"12\">\r\n            <br>\r\n            <ion-button shape=\"block\" (click)=\"cambiarPass()\">Cambiar contraseña</ion-button>\r\n          </ion-col>\r\n        </ion-row>\r\n      </ion-card-content>\r\n    </ion-card>\r\n  </div>\r\n</ion-content>\r\n");
 
 /***/ })
 
