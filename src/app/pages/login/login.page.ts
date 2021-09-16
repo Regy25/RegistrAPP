@@ -3,6 +3,9 @@ import { Router, NavigationExtras } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { Usuario } from 'src/app/model/Usuario';
 
+// importacion permisos camara
+import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -12,7 +15,7 @@ export class LoginPage implements OnInit {
 
   public usuario: Usuario;
 
-  constructor(private router: Router, private toastController: ToastController) {
+  constructor(private router: Router, private toastController: ToastController,private qrScanner: QRScanner) {
     this.usuario = new Usuario();
     this.usuario.nombreUsuario = '';
     this.usuario.password = '';
@@ -22,6 +25,8 @@ export class LoginPage implements OnInit {
     // this.usuario.nombreUsuario = 'Jose';
     // this.usuario.password = '1234';
     // this.ingresar();
+    this.qrScanner.prepare()
+    .then((status: QRScannerStatus) => status.authorized)
   }
 
   public ingresar(): void {

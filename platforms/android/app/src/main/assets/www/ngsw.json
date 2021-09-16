@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1631538107936,
+  "timestamp": 1631814041161,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -121,9 +121,9 @@
     "/assets/user/user.json": "7ae277d5c9f31cc4e099ca92132951645d0100d8",
     "/common.js": "2bf67e9aec1f55197c0cf46562b030901e83516c",
     "/cordova.js": "de06a293254c85fe041aff2e35c52816b215a430",
-    "/cordova_plugins.js": "0aaaa602525a212fa58bb278f4f0a31520019a4e",
+    "/cordova_plugins.js": "ef222ac112bf62f9aa164278b5c1fb0a1241600c",
     "/index.html": "6130e849ced6893c1308c2d65c78997c454f714d",
-    "/main.js": "f7f7300e7ba1047e8c03b83e5e1cb529fd3f7800",
+    "/main.js": "1787478372b7147606533507685fe128095c9a4a",
     "/manifest.webmanifest": "9a088b7c4339228d1082e666ce105dc889bc180c",
     "/node_modules_ionic_core_dist_esm_focus-visible-f4ad4f1a_js.js": "4f8330b267d6d277a30bd1a2176936da035a9978",
     "/node_modules_ionic_core_dist_esm_input-shims-73f15161_js.js": "ae4f236ae27ec1fdf9feb029ce7ac2d08fcc21c9",
@@ -182,10 +182,10 @@
     "/polyfills.js": "8ce852a68bba1141684aed7a39952cd51fa10dac",
     "/runtime.js": "6e2bf73bc6a23e33532922fe43ea8fcbb07f750c",
     "/src_app_pages_home_home_module_ts.js": "4d88cd52f50cb0c5930903483fd7325bc22cf4da",
-    "/src_app_pages_login_login_module_ts.js": "56f9336efd92d9054142054cdb810735793db855",
+    "/src_app_pages_login_login_module_ts.js": "160683be53ae9ce9823074805f37b5da677f0bd6",
     "/src_app_pages_recuperar_recuperar_module_ts.js": "67bf9ac3963bcb97906dbebec75059b3f945e5d3",
     "/styles.css": "809f447732f1d9d27164480cfbf58b07d7385bf5",
-    "/vendor.js": "53c224434168f7a9dbe09ec5bed4589b91bb7665"
+    "/vendor.js": "7eb5c3678bf4021c07b6888f993cd9af853da615"
   },
   "navigationUrls": [
     {
