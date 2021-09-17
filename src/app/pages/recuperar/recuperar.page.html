@@ -1,16 +1,16 @@
 <ion-content>
   <!-- Login -->
-  <div class="ion-padding-vertical">
-    <ion-card class="ion-text-center ion-padding-vertical">
-      <ion-card-title class="ion-text-center">
-        <ion-label>
-          <h2 > Complete la informacion <br>
+  <div class="ion-padding-vertical lol">
+    <ion-card class="ion-text-center ion-padding-vertical ion-padding-horizontal tarjeta">
+      <ion-card-title class="ion-text-center titulo ">
+        <ion-label> 
+          <h2 > Complete la información <br>
             para cambiar la contraseña </h2>
           <br>
         </ion-label>
       </ion-card-title>
       <ion-card-content>
-        <ion-item>
+        <ion-item class="item">
           <ion-label position="floating">Usuario</ion-label>
           <ion-input type="text" [(ngModel)]="usuario.nombreUsuario"></ion-input>
         </ion-item>
@@ -22,10 +22,10 @@
           <ion-label position="floating">Confirmar Contraseña</ion-label>
           <ion-input type="password" [(ngModel)]="usuario.confirmarPass"></ion-input>
         </ion-item>
-        <ion-row>
-          <ion-col size="12">
+        <ion-row >
+          <ion-col size="12" >
             <br>
-            <ion-button shape="block" (click)="cambiarPass()">Cambiar contraseña</ion-button>
+            <ion-button color="light" shape="block"  (click)="cambiarPass()">Cambiar contraseña</ion-button>
           </ion-col>
         </ion-row>
       </ion-card-content>
