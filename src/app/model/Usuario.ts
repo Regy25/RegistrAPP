@@ -1,3 +1,4 @@
+
 export class Usuario {
     public nombreUsuario = '';
     public password = '';

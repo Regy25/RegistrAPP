@@ -2,6 +2,9 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { ToastController, LoadingController, Platform } from '@ionic/angular';
 import jsQR from 'jsqr';
 
+// importacion animaciones
+import { Animation, AnimationController } from '@ionic/angular';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -22,7 +25,8 @@ export class HomePage {
   constructor(
     private toastCtrl: ToastController,
     private loadingCtrl: LoadingController,
-    private plt: Platform
+    private plt: Platform,
+    private animationCtrl: AnimationController
   ) {
     const isInStandaloneMode = () =>
       'standalone' in window.navigator && window.navigator['standalone'];
@@ -30,6 +34,16 @@ export class HomePage {
       console.log('I am a an iOS PWA!');
       // E.g. hide the scan functionality!
     }
+  }
+
+  ngOnInit() {
+    this.animationCtrl.create()
+      .addElement(document.querySelector('.titulo'))
+      .duration(2000)
+      .iterations(Infinity)
+      .fromTo('transform', 'translateX(0px)', 'translateX(300px)')
+      .fromTo('opacity', '1', '0.2')
+      .play();
   }
 
   ngAfterViewInit() {
