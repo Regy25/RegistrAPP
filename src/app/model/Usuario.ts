@@ -41,6 +41,17 @@ export class Usuario {
     }
 
     public validarNewPass(): string {
+        if (this.newPass.trim() === '') {
+            return 'Para entrar al sistema debe ingresar la contraseña.';
+        }
+        for(let i = 0; i < this.newPass.length; i++) {
+            if ('0123456789'.indexOf(this.newPass.charAt(i)) === -1) {
+                return 'La contraseña debe ser numérica.';
+            }
+        }
+        if (this.newPass.length !== 4) {
+            return 'La contraseña debe ser numérica de 4 dígitos.';
+        }
         if (this.newPass===this.confirmarPass) {
             this.pass=this.newPass;
             return '';
