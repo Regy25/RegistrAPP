@@ -16,7 +16,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	var installedModules = {};
 /******/
 /******/ 	// The require function
-/******/ 	function __nested_webpack_require_568__(moduleId) {
+/******/ 	function __nested_webpack_require_583__(moduleId) {
 /******/
 /******/ 		// Check if module is in cache
 /******/ 		if(installedModules[moduleId]) {
@@ -30,7 +30,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 		};
 /******/
 /******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __nested_webpack_require_568__);
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __nested_webpack_require_583__);
 /******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.l = true;
@@ -41,14 +41,14 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__nested_webpack_require_568__.m = modules;
+/******/ 	__nested_webpack_require_583__.m = modules;
 /******/
 /******/ 	// expose the module cache
-/******/ 	__nested_webpack_require_568__.c = installedModules;
+/******/ 	__nested_webpack_require_583__.c = installedModules;
 /******/
 /******/ 	// define getter function for harmony exports
-/******/ 	__nested_webpack_require_568__.d = function(exports, name, getter) {
-/******/ 		if(!__nested_webpack_require_568__.o(exports, name)) {
+/******/ 	__nested_webpack_require_583__.d = function(exports, name, getter) {
+/******/ 		if(!__nested_webpack_require_583__.o(exports, name)) {
 /******/ 			Object.defineProperty(exports, name, {
 /******/ 				configurable: false,
 /******/ 				enumerable: true,
@@ -58,22 +58,22 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	};
 /******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__nested_webpack_require_568__.n = function(module) {
+/******/ 	__nested_webpack_require_583__.n = function(module) {
 /******/ 		var getter = module && module.__esModule ?
 /******/ 			function getDefault() { return module['default']; } :
 /******/ 			function getModuleExports() { return module; };
-/******/ 		__nested_webpack_require_568__.d(getter, 'a', getter);
+/******/ 		__nested_webpack_require_583__.d(getter, 'a', getter);
 /******/ 		return getter;
 /******/ 	};
 /******/
 /******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__nested_webpack_require_568__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/ 	__nested_webpack_require_583__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__nested_webpack_require_568__.p = "";
+/******/ 	__nested_webpack_require_583__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __nested_webpack_require_568__(__nested_webpack_require_568__.s = 3);
+/******/ 	return __nested_webpack_require_583__(__nested_webpack_require_583__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -115,12 +115,12 @@ exports.BitMatrix = BitMatrix;
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports, __nested_webpack_require_3952__) {
+/***/ (function(module, exports, __nested_webpack_require_4066__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var GenericGFPoly_1 = __nested_webpack_require_3952__(2);
+var GenericGFPoly_1 = __nested_webpack_require_4066__(2);
 function addOrSubtractGF(a, b) {
     return a ^ b; // tslint:disable-line:no-bitwise
 }
@@ -185,12 +185,12 @@ exports.default = GenericGF;
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __nested_webpack_require_6272__) {
+/***/ (function(module, exports, __nested_webpack_require_6456__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var GenericGF_1 = __nested_webpack_require_6272__(1);
+var GenericGF_1 = __nested_webpack_require_6456__(1);
 var GenericGFPoly = /** @class */ (function () {
     function GenericGFPoly(field, coefficients) {
         if (coefficients.length === 0) {
@@ -322,15 +322,15 @@ exports.default = GenericGFPoly;
 
 /***/ }),
 /* 3 */
-/***/ (function(module, exports, __nested_webpack_require_11547__) {
+/***/ (function(module, exports, __nested_webpack_require_11868__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var binarizer_1 = __nested_webpack_require_11547__(4);
-var decoder_1 = __nested_webpack_require_11547__(5);
-var extractor_1 = __nested_webpack_require_11547__(11);
-var locator_1 = __nested_webpack_require_11547__(12);
+var binarizer_1 = __nested_webpack_require_11868__(4);
+var decoder_1 = __nested_webpack_require_11868__(5);
+var extractor_1 = __nested_webpack_require_11868__(11);
+var locator_1 = __nested_webpack_require_11868__(12);
 function scan(matrix) {
     var locations = locator_1.locate(matrix);
     if (!locations) {
@@ -385,12 +385,12 @@ exports.default = jsQR;
 
 /***/ }),
 /* 4 */
-/***/ (function(module, exports, __nested_webpack_require_14168__) {
+/***/ (function(module, exports, __nested_webpack_require_14552__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var BitMatrix_1 = __nested_webpack_require_14168__(0);
+var BitMatrix_1 = __nested_webpack_require_14552__(0);
 var REGION_SIZE = 8;
 var MIN_DYNAMIC_RANGE = 24;
 function numBetween(value, min, max) {
@@ -505,15 +505,15 @@ exports.binarize = binarize;
 
 /***/ }),
 /* 5 */
-/***/ (function(module, exports, __nested_webpack_require_19864__) {
+/***/ (function(module, exports, __nested_webpack_require_20368__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var BitMatrix_1 = __nested_webpack_require_19864__(0);
-var decodeData_1 = __nested_webpack_require_19864__(6);
-var reedsolomon_1 = __nested_webpack_require_19864__(9);
-var version_1 = __nested_webpack_require_19864__(10);
+var BitMatrix_1 = __nested_webpack_require_20368__(0);
+var decodeData_1 = __nested_webpack_require_20368__(6);
+var reedsolomon_1 = __nested_webpack_require_20368__(9);
+var version_1 = __nested_webpack_require_20368__(10);
 // tslint:disable:no-bitwise
 function numBitsDiffering(x, y) {
     var z = x ^ y;
@@ -821,14 +821,14 @@ exports.decode = decode;
 
 /***/ }),
 /* 6 */
-/***/ (function(module, exports, __nested_webpack_require_33675__) {
+/***/ (function(module, exports, __nested_webpack_require_34495__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 // tslint:disable:no-bitwise
-var BitStream_1 = __nested_webpack_require_33675__(7);
-var shiftJISTable_1 = __nested_webpack_require_33675__(8);
+var BitStream_1 = __nested_webpack_require_34495__(7);
+var shiftJISTable_1 = __nested_webpack_require_34495__(8);
 var Mode;
 (function (Mode) {
     Mode["Numeric"] = "numeric";
@@ -8149,13 +8149,13 @@ exports.shiftJISTable = {
 
 /***/ }),
 /* 9 */
-/***/ (function(module, exports, __nested_webpack_require_183922__) {
+/***/ (function(module, exports, __nested_webpack_require_192070__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var GenericGF_1 = __nested_webpack_require_183922__(1);
-var GenericGFPoly_1 = __nested_webpack_require_183922__(2);
+var GenericGF_1 = __nested_webpack_require_192070__(1);
+var GenericGFPoly_1 = __nested_webpack_require_192070__(2);
 function runEuclideanAlgorithm(field, a, b, R) {
     var _a;
     // Assume a's degree is >= b's
@@ -9593,12 +9593,12 @@ exports.VERSIONS = [
 
 /***/ }),
 /* 11 */
-/***/ (function(module, exports, __nested_webpack_require_231645__) {
+/***/ (function(module, exports, __nested_webpack_require_241237__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var BitMatrix_1 = __nested_webpack_require_231645__(0);
+var BitMatrix_1 = __nested_webpack_require_241237__(0);
 function squareToQuadrilateral(p1, p2, p3, p4) {
     var dx3 = p1.x - p2.x + p3.x - p4.x;
     var dy3 = p1.y - p2.y + p3.y - p4.y;
@@ -10211,11 +10211,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// importacion animaciones
+
 let HomePage = class HomePage {
-    constructor(toastCtrl, loadingCtrl, plt) {
+    constructor(toastCtrl, loadingCtrl, plt, animationCtrl) {
         this.toastCtrl = toastCtrl;
         this.loadingCtrl = loadingCtrl;
         this.plt = plt;
+        this.animationCtrl = animationCtrl;
         this.scanActive = false;
         this.scanResult = null;
         this.loading = null;
@@ -10224,6 +10227,15 @@ let HomePage = class HomePage {
             console.log('I am a an iOS PWA!');
             // E.g. hide the scan functionality!
         }
+    }
+    ngOnInit() {
+        this.animationCtrl.create()
+            .addElement(document.querySelector('.titulo'))
+            .duration(2000)
+            .iterations(Infinity)
+            .fromTo('transform', 'translateX(0px)', 'translateX(300px)')
+            .fromTo('opacity', '1', '0.2')
+            .play();
     }
     ngAfterViewInit() {
         this.canvasElement = this.canvas.nativeElement;
@@ -10323,7 +10335,8 @@ let HomePage = class HomePage {
 HomePage.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__.ToastController },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__.LoadingController },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__.Platform }
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__.Platform },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__.AnimationController }
 ];
 HomePage.propDecorators = {
     video: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_5__.ViewChild, args: ['video', { static: false },] }],
@@ -10368,7 +10381,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header>\r\n  <ion-toolbar color=\"primary\">\r\n    <ion-title>\r\n      Ionic QR Scanner\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <!-- Fallback for iOS PWA -->\r\n  <input #fileinput type=\"file\" accept=\"image/*;capture=camera\" hidden (change)=\"handleFile($event.target.files)\">\r\n\r\n  <!-- Trigger the file input -->\r\n  <ion-button expand=\"full\" (click)=\"captureImage()\">\r\n    <ion-icon slot=\"start\" name=\"camera\"></ion-icon>\r\n    Capture Image\r\n  </ion-button>\r\n\r\n  <ion-button expand=\"full\" (click)=\"startScan()\">\r\n    <ion-icon slot=\"start\" name=\"qr-scanner\"></ion-icon>\r\n    Start scan\r\n  </ion-button>\r\n\r\n  <ion-button expand=\"full\" (click)=\"reset()\" color=\"warning\" *ngIf=\"scanResult\">\r\n    <ion-icon slot=\"start\" name=\"refresh\"></ion-icon>\r\n    Reset\r\n  </ion-button>\r\n\r\n  <!-- Shows our camera stream -->\r\n  <video #video [hidden]=\"!scanActive\" width=\"100%\"></video>\r\n\r\n  <!-- Used to render the camera stream images -->\r\n  <canvas #canvas hidden></canvas>\r\n\r\n  <!-- Stop our scanner preview if active -->\r\n  <ion-button expand=\"full\" (click)=\"stopScan()\" color=\"danger\" *ngIf=\"scanActive\">\r\n    <ion-icon slot=\"start\" name=\"close\"></ion-icon>\r\n    Stop scan\r\n  </ion-button>\r\n\r\n  <ion-card *ngIf=\"scanResult\">\r\n    <ion-card-header>\r\n      <ion-card-title>QR Code</ion-card-title>\r\n    </ion-card-header>\r\n    <ion-card-content>\r\n      {{ scanResult }}\r\n    </ion-card-content>\r\n  </ion-card>\r\n\r\n</ion-content>");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header>\r\n  <ion-toolbar color=\"primary\">\r\n    <ion-title class=\"titulo\" >\r\n      Ionic QR Scanner\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <!-- Fallback for iOS PWA -->\r\n  <input #fileinput type=\"file\" accept=\"image/*;capture=camera\" hidden (change)=\"handleFile($event.target.files)\">\r\n\r\n  <!-- Trigger the file input -->\r\n  <ion-button expand=\"full\" (click)=\"captureImage()\">\r\n    <ion-icon slot=\"start\" name=\"camera\"></ion-icon>\r\n    Capture Image\r\n  </ion-button>\r\n\r\n  <ion-button expand=\"full\" (click)=\"startScan()\">\r\n    <ion-icon slot=\"start\" name=\"qr-scanner\"></ion-icon>\r\n    Start scan\r\n  </ion-button>\r\n\r\n  <ion-button expand=\"full\" (click)=\"reset()\" color=\"warning\" *ngIf=\"scanResult\">\r\n    <ion-icon slot=\"start\" name=\"refresh\"></ion-icon>\r\n    Reset\r\n  </ion-button>\r\n\r\n  <!-- Shows our camera stream -->\r\n  <video #video [hidden]=\"!scanActive\" width=\"100%\"></video>\r\n\r\n  <!-- Used to render the camera stream images -->\r\n  <canvas #canvas hidden></canvas>\r\n\r\n  <!-- Stop our scanner preview if active -->\r\n  <ion-button expand=\"full\" (click)=\"stopScan()\" color=\"danger\" *ngIf=\"scanActive\">\r\n    <ion-icon slot=\"start\" name=\"close\"></ion-icon>\r\n    Stop scan\r\n  </ion-button>\r\n\r\n  <ion-card *ngIf=\"scanResult\">\r\n    <ion-card-header>\r\n      <ion-card-title>QR Code</ion-card-title>\r\n    </ion-card-header>\r\n    <ion-card-content>\r\n      {{ scanResult }}\r\n    </ion-card-content>\r\n  </ion-card>\r\n\r\n</ion-content>");
 
 /***/ })
 

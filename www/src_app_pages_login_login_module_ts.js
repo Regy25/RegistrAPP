@@ -109,12 +109,15 @@ __webpack_require__.r(__webpack_exports__);
 
 // importacion permisos camara
 
+// importacion animaciones
+
 let LoginPage = class LoginPage {
-    constructor(router, toastController, qrScanner, activeroute) {
+    constructor(router, toastController, qrScanner, activeroute, animationCtrl) {
         this.router = router;
         this.toastController = toastController;
         this.qrScanner = qrScanner;
         this.activeroute = activeroute;
+        this.animationCtrl = animationCtrl;
         this.activeroute.queryParams.subscribe(params => {
             if (this.router.getCurrentNavigation().extras.state) {
                 this.usuario = this.router.getCurrentNavigation().extras.state.user;
@@ -136,6 +139,19 @@ let LoginPage = class LoginPage {
     }
     ingresar() {
         if (!this.validarUsuario(this.usuario)) {
+            this.usuario.nombreUsuario = '';
+            this.usuario.password = '';
+            this.animationCtrl.create()
+                .addElement(document.querySelector('.contraseña'))
+                .addElement(document.querySelector('.usuario'))
+                .duration(1000)
+                .iterations(1)
+                .keyframes([
+                { offset: 0, transform: 'translateX(0px)' },
+                { offset: 1, transform: 'translateX(300px)' },
+                { offset: 1, transform: 'translateX(0px)' },
+            ])
+                .play();
             return;
         }
         this.mostrarMensaje('Bienvenido!');
@@ -168,7 +184,8 @@ LoginPage.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__.Router },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__.ToastController },
     { type: _ionic_native_qr_scanner_ngx__WEBPACK_IMPORTED_MODULE_3__.QRScanner },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__.ActivatedRoute }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__.ActivatedRoute },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__.AnimationController }
 ];
 LoginPage = (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__decorate)([
     (0,_angular_core__WEBPACK_IMPORTED_MODULE_7__.Component)({
@@ -208,7 +225,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-content>\r\n  <!-- Titulo -->\r\n  <ion-title class=\"ion-padding-top ion-text-center\">\r\n    <ion-label>\r\n          <ion-img src=\"../../../assets/images/Logo.png\" alt=\"logo\" style=\"width: 90px;object-fit: cover;\"></ion-img>\r\n    </ion-label>\r\n  </ion-title>\r\n  <!-- Login -->\r\n  <div class=\"ion-padding-vertical\">\r\n    <ion-card class=\"ion-text-center ion-padding-vertical\">\r\n      <ion-card-title class=\"ion-text-center\">\r\n        <ion-label>\r\n          <h2 >¡Inicie Sesion para <br>\r\n            registrar Asistencia!</h2>\r\n          <br>\r\n        </ion-label>\r\n      </ion-card-title>\r\n      <ion-card-content>\r\n        <ion-item>\r\n          <ion-label position=\"floating\">Usuario</ion-label>\r\n          <ion-input type=\"text\" [(ngModel)]=\"usuario.nombreUsuario\"></ion-input>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label position=\"floating\">Contraseña</ion-label>\r\n          <ion-input type=\"password\" [(ngModel)]=\"usuario.password\"></ion-input>\r\n        </ion-item>\r\n        <ion-row>\r\n          <ion-col size=\"12\">\r\n            <br>\r\n            <ion-button shape=\"block\" (click)=\"ingresar()\">Iniciar Sesion</ion-button>\r\n          </ion-col>\r\n        </ion-row>\r\n      </ion-card-content>\r\n      <ion-label>\r\n        <br>\r\n        <a [routerLink]=\"['../recuperar']\">Recuperar</a>\r\n      </ion-label>\r\n    </ion-card>\r\n  </div>\r\n</ion-content>");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-content>\r\n  <!-- Titulo -->\r\n  <ion-title class=\"ion-padding-top ion-text-center\">\r\n    <ion-label>\r\n          <ion-img src=\"../../../assets/images/Logo.png\" alt=\"logo\" style=\"width: 90px;object-fit: cover;\"></ion-img>\r\n    </ion-label>\r\n  </ion-title>\r\n  <!-- Login -->\r\n  <div class=\"ion-padding-vertical\">\r\n    <ion-card class=\"ion-text-center ion-padding-vertical\">\r\n      <ion-card-title class=\"ion-text-center\">\r\n        <ion-label>\r\n          <h2 >¡Inicie Sesion para <br>\r\n            registrar Asistencia!</h2>\r\n          <br>\r\n        </ion-label>\r\n      </ion-card-title>\r\n      <ion-card-content>\r\n        <ion-item>\r\n          <ion-label class=\"usuario\">Usuario:</ion-label>\r\n          <ion-input type=\"text\" [(ngModel)]=\"usuario.nombreUsuario\"></ion-input>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label class=\"contraseña\">Contraseña:</ion-label>\r\n          <ion-input type=\"password\" [(ngModel)]=\"usuario.password\"></ion-input>\r\n        </ion-item>\r\n        <ion-row>\r\n          <ion-col size=\"12\">\r\n            <br>\r\n            <ion-button shape=\"block\" (click)=\"ingresar()\">Iniciar Sesion</ion-button>\r\n          </ion-col>\r\n        </ion-row>\r\n      </ion-card-content>\r\n      <ion-label>\r\n        <br>\r\n        <a [routerLink]=\"['../recuperar']\">Recuperar</a>\r\n      </ion-label>\r\n    </ion-card>\r\n  </div>\r\n</ion-content>");
 
 /***/ })
 

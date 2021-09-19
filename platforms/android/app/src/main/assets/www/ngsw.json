@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1631818647928,
+  "timestamp": 1631991608231,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -117,12 +117,12 @@
     "/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "/assets/images/Logo.png": "b5bfcf31b4ca29925cbf3464c1977c016fd34b5a",
     "/assets/shapes.svg": "638f87e27e6fc7ddfd6e6b262ea70d690f6c7011",
-    "/common.js": "17d8c068911106d7580d4916c0c249ec2ba3484e",
-    "/cordova.js": "de06a293254c85fe041aff2e35c52816b215a430",
-    "/cordova_plugins.js": "ef222ac112bf62f9aa164278b5c1fb0a1241600c",
-    "/index.html": "6130e849ced6893c1308c2d65c78997c454f714d",
+    "/common.js": "a72d7715c9c77fad2597b7cd0e42559acfb6d823",
+    "/cordova.js": "04526aa497a602280d70f9225c5837ede1727daf",
+    "/cordova_plugins.js": "8613767a5529af3f557d12bbde64f1b8a2f4900d",
+    "/index.html": "80625080c7614ff99046347fafaa8e1e412d2590",
     "/main.js": "d1d8bea5add7d033cc1bae27af7aaeb6c96f066e",
-    "/manifest.webmanifest": "9a088b7c4339228d1082e666ce105dc889bc180c",
+    "/manifest.webmanifest": "da2061dba175bf2d881980e8596ff5343e2dd7b6",
     "/node_modules_ionic_core_dist_esm_focus-visible-f4ad4f1a_js.js": "4f8330b267d6d277a30bd1a2176936da035a9978",
     "/node_modules_ionic_core_dist_esm_input-shims-73f15161_js.js": "ae4f236ae27ec1fdf9feb029ce7ac2d08fcc21c9",
     "/node_modules_ionic_core_dist_esm_ion-action-sheet_entry_js.js": "250e76da639c8ded60223a7938f551f6db2833fc",
@@ -179,11 +179,11 @@
     "/polyfills-dom.js": "8b515843a7ee8dc40a27be833c14d2684546503f",
     "/polyfills.js": "8ce852a68bba1141684aed7a39952cd51fa10dac",
     "/runtime.js": "6e2bf73bc6a23e33532922fe43ea8fcbb07f750c",
-    "/src_app_pages_home_home_module_ts.js": "4d88cd52f50cb0c5930903483fd7325bc22cf4da",
-    "/src_app_pages_login_login_module_ts.js": "493009e04b19408717fd106187a18f6cbf0d49e8",
-    "/src_app_pages_recuperar_recuperar_module_ts.js": "fbb659ee2d09f589aef57e3af4ef9e4588f88f9b",
+    "/src_app_pages_home_home_module_ts.js": "c94d5657829e8ddeb1dd9ce00c5c09c25363f216",
+    "/src_app_pages_login_login_module_ts.js": "0ff263b066fb7bd1a9ceaf94e8a7b62ff925954a",
+    "/src_app_pages_recuperar_recuperar_module_ts.js": "4555d70dfa721aee7b7415585da8b8596dc22b1f",
     "/styles.css": "809f447732f1d9d27164480cfbf58b07d7385bf5",
-    "/vendor.js": "7eb5c3678bf4021c07b6888f993cd9af853da615"
+    "/vendor.js": "bd09b2abb5cb68e3fedc173bffaf91f474730fdb"
   },
   "navigationUrls": [
     {
