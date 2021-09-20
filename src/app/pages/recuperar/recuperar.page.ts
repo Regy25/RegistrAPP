@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { Usuario } from 'src/app/model/Usuario';
+// importacion animaciones
+import { Animation, AnimationController } from '@ionic/angular';
 
 @Component({
   selector: 'app-recuperar',
@@ -12,7 +14,7 @@ export class RecuperarPage implements OnInit {
 
   public usuario: Usuario;
 
-  constructor(private router: Router, private toastController:ToastController) {
+  constructor(private router: Router, private toastController:ToastController, private animationCtrl: AnimationController) {
     this.usuario = new Usuario();
     this.usuario.nombreUsuario = '';
     this.usuario.password = '';
@@ -21,6 +23,13 @@ export class RecuperarPage implements OnInit {
   }
 
   ngOnInit(): void {
+    this.animationCtrl.create()
+      .addElement(document.querySelector('.titulo'))
+      .duration(2000)
+      .iterations(Infinity)
+      .fromTo('transform', 'translateX(0px)', 'translateX(300px)')
+      .fromTo('opacity', '1', '0.2')
+      .play();
   }
 
   public cambiarPass(): void {

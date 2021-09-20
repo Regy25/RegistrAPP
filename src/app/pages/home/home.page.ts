@@ -1,6 +1,8 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { ToastController, LoadingController, Platform } from '@ionic/angular';
+import { Router, NavigationExtras,ActivatedRoute } from '@angular/router';
 import jsQR from 'jsqr';
+import { Usuario } from 'src/app/model/Usuario';
 
 // importacion animaciones
 import { Animation, AnimationController } from '@ionic/angular';
@@ -22,12 +24,23 @@ export class HomePage {
   scanResult = null;
   loading: HTMLIonLoadingElement = null;
 
+  public usuario: Usuario;
+
   constructor(
+    private router: Router,
+    private activeroute: ActivatedRoute,
     private toastCtrl: ToastController,
     private loadingCtrl: LoadingController,
     private plt: Platform,
-    private animationCtrl: AnimationController
-  ) {
+    private animationCtrl: AnimationController) {
+    this.activeroute.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.usuario = this.router.getCurrentNavigation().extras.state.user;
+        console.log(this.usuario);
+      } else {
+        this.router.navigate(['/login']);
+      }
+    });
     const isInStandaloneMode = () =>
       'standalone' in window.navigator && window.navigator['standalone'];
     if (this.plt.is('ios') && isInStandaloneMode()) {
@@ -57,6 +70,7 @@ export class HomePage {
     const toast = await this.toastCtrl.create({
       message: `Open ${this.scanResult}?`,
       position: 'top',
+      duration: 4000,
       buttons: [
         {
           text: 'Open',

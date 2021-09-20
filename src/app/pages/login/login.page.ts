@@ -28,7 +28,7 @@ export class LoginPage implements OnInit {
       if (this.router.getCurrentNavigation().extras.state) {
         this.usuario = this.router.getCurrentNavigation().extras.state.user;
         console.log(this.usuario);
-      }else {
+      } else {
         this.usuario = new Usuario();
         this.usuario.nombreUsuario = '';
         this.usuario.password = '';
@@ -40,6 +40,13 @@ export class LoginPage implements OnInit {
     // this.usuario.nombreUsuario = 'Jose';
     // this.usuario.password = '1234';
     // this.ingresar();
+    this.animationCtrl.create()
+      .addElement(document.querySelector('.titulo'))
+      .duration(2000)
+      .iterations(Infinity)
+      .fromTo('transform', 'translateX(0px)', 'translateX(300px)')
+      .fromTo('opacity', '1', '0.2')
+      .play();
     this.qrScanner.prepare()
     .then((status: QRScannerStatus) => status.authorized);
   }

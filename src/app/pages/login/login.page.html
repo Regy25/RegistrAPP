@@ -1,17 +1,19 @@
+<ion-header>
+  <!-- Titulo --> 
+  <ion-toolbar color="primary">
+    <ion-title class="titulo" >
+      RegistrAPP
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
-  <!-- Titulo -->
-  <ion-title class="ion-padding-top ion-text-center">
-    <ion-label>
-          <ion-img src="../../../assets/images/Logo.png" alt="logo" style="width: 90px;object-fit: cover;"></ion-img>
-    </ion-label>
-  </ion-title>
   <!-- Login -->
   <div class="ion-padding-vertical">
     <ion-card class="ion-text-center ion-padding-vertical">
       <ion-card-title class="ion-text-center">
         <ion-label>
-          <h2 >¡Inicie Sesion para <br>
-            registrar Asistencia!</h2>
+          <h2 >¡Iniciar Sesión!</h2>
           <br>
         </ion-label>
       </ion-card-title>
@@ -27,13 +29,13 @@
         <ion-row>
           <ion-col size="12">
             <br>
-            <ion-button shape="block" (click)="ingresar()">Iniciar Sesion</ion-button>
+            <ion-button shape="block" (click)="ingresar()">Iniciar Sesión</ion-button>
           </ion-col>
         </ion-row>
       </ion-card-content>
       <ion-label>
         <br>
-        <a [routerLink]="['../recuperar']">Recuperar</a>
+        <a [routerLink]="['../recuperar']">Recuperar Contraseña</a>
       </ion-label>
     </ion-card>
   </div>
