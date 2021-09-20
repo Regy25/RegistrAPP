@@ -7,21 +7,23 @@
 </ion-header>
 
 <ion-content>
-  <ion-title class="ion-padding-top">
+    <div class="ion-padding-vertical">
+    <ion-card class="ion-text-center ion-padding-vertical">
+  <ion-title class="ion-padding-bottom">
     <ion-label>
       <h1 class="ion-text-center" *ngIf="usuario">¡Bienvenido {{ usuario.nombreUsuario }}!</h1>
     </ion-label>
   </ion-title>
   <input #fileinput type="file" accept="image/*;capture=camera" hidden (change)="handleFile($event.target.files)">
-  <ion-button expand="full" (click)="captureImage()">
+  <ion-button expand="full" color="secondary" (click)="captureImage()">
     <ion-icon slot="start" name="camera"></ion-icon>
     Capturar imagen
   </ion-button>
-  <ion-button expand="full" (click)="startScan()">
+  <ion-button expand="full" color="secondary" (click)="startScan()">
     <ion-icon slot="start" name="qr-scanner"></ion-icon>
     Iniciar Escaneo
   </ion-button>
-  <ion-button expand="full" (click)="reset()" color="warning" *ngIf="scanResult">
+  <ion-button  expand="full" color="secondary" (click)="reset()" color="warning" *ngIf="scanResult">
     <ion-icon slot="start" name="refresh"></ion-icon>
     Volver a Escanear
   </ion-button>
@@ -43,5 +45,12 @@
       {{ scanResult }}
     </ion-card-content>
   </ion-card>
-
+</ion-card>
+</div>
 </ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-title>App desarrollada por Grupo 8</ion-title>
+  </ion-toolbar>
+</ion-footer>
