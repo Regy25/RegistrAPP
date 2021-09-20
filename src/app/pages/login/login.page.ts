@@ -37,9 +37,9 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() {
-    // this.usuario.nombreUsuario = 'Jose';
-    // this.usuario.password = '1234';
-    // this.ingresar();
+    this.usuario.nombreUsuario = 'Jose';
+    this.usuario.password = '1234';
+    this.ingresar();
     this.animationCtrl.create()
       .addElement(document.querySelector('.titulo'))
       .duration(2000)
@@ -69,7 +69,7 @@ export class LoginPage implements OnInit {
       .play();
       return;
     }
-    this.mostrarMensaje('Bienvenido!');
+    this.mostrarMensaje('Bienvenido '+this.usuario.nombreUsuario+'!');
     const navigationExtras: NavigationExtras = {
       state: {
         usuario: this.usuario

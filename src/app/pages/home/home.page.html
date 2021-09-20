@@ -7,10 +7,6 @@
 </ion-header>
 
 <ion-content>
-  <ion-label>
-    <h1 class="ion-text-center" id="Bienvenido">¡Bienvenido!</h1>
-    <p *ngIf="usuario">Usuario: {{ usuario.nombreUsuario }}</p>
-  </ion-label>
   <input #fileinput type="file" accept="image/*;capture=camera" hidden (change)="handleFile($event.target.files)">
   <ion-button expand="full" (click)="captureImage()">
     <ion-icon slot="start" name="camera"></ion-icon>
