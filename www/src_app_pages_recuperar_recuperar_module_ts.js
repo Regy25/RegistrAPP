@@ -106,10 +106,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// importacion animaciones
+
 let RecuperarPage = class RecuperarPage {
-    constructor(router, toastController) {
+    constructor(router, toastController, animationCtrl) {
         this.router = router;
         this.toastController = toastController;
+        this.animationCtrl = animationCtrl;
         this.usuario = new src_app_model_Usuario__WEBPACK_IMPORTED_MODULE_2__.Usuario();
         this.usuario.nombreUsuario = '';
         this.usuario.password = '';
@@ -117,6 +120,13 @@ let RecuperarPage = class RecuperarPage {
         this.usuario.confirmarPass = '';
     }
     ngOnInit() {
+        this.animationCtrl.create()
+            .addElement(document.querySelector('.titulo'))
+            .duration(2000)
+            .iterations(Infinity)
+            .fromTo('transform', 'translateX(0px)', 'translateX(300px)')
+            .fromTo('opacity', '1', '0.2')
+            .play();
     }
     cambiarPass() {
         if (!this.validarNewPass(this.usuario)) {
@@ -150,7 +160,8 @@ let RecuperarPage = class RecuperarPage {
 };
 RecuperarPage.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__.Router },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.ToastController }
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.ToastController },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.AnimationController }
 ];
 RecuperarPage = (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__decorate)([
     (0,_angular_core__WEBPACK_IMPORTED_MODULE_6__.Component)({
@@ -175,7 +186,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (".tarjeta {\n  background-color: #878683;\n}\n\n.titulo {\n  background-color: #f4d47c;\n  padding-top: 15px;\n  color: white;\n}\n\nh2 {\n  color: white;\n}\n\n.item {\n  color: white;\n}\n\nion-item {\n  --ion-background-color:#444444;\n}\n\nion-content {\n  margin-top: 15px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInJlY3VwZXJhci5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBRUE7RUFFSSx5QkFBQTtBQUZKOztBQUtBO0VBRUkseUJBQUE7RUFDQSxpQkFBQTtFQUNBLFlBQUE7QUFISjs7QUFTQTtFQUVJLFlBQUE7QUFQSjs7QUFVQTtFQUVJLFlBQUE7QUFSSjs7QUFZQTtFQUVJLDhCQUFBO0FBVko7O0FBYUE7RUFFSSxnQkFBQTtBQVhKIiwiZmlsZSI6InJlY3VwZXJhci5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcclxuXHJcbi50YXJqZXRhIHsgXHJcblxyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzg3ODY4MztcclxufVxyXG5cclxuLnRpdHVsbyB7IFxyXG5cclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNmNGQ0N2M7XHJcbiAgICBwYWRkaW5nLXRvcDogMTVweDtcclxuICAgIGNvbG9yOiB3aGl0ZTtcclxuICAgIFxyXG4gICAgXHJcbiAgICBcclxufVxyXG5cclxuaDIgeyBcclxuXHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbn1cclxuXHJcbi5pdGVte1xyXG4gICAgXHJcbiAgICBjb2xvcjogd2hpdGU7XHJcblxyXG59XHJcblxyXG5pb24taXRlbXtcclxuXHJcbiAgICAtLWlvbi1iYWNrZ3JvdW5kLWNvbG9yOiM0NDQ0NDQ7XHJcbn1cclxuXHJcbmlvbi1jb250ZW50e1xyXG5cclxuICAgIG1hcmdpbi10b3A6IDE1cHg7XHJcbn0iXX0= */");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJyZWN1cGVyYXIucGFnZS5zY3NzIn0= */");
 
 /***/ }),
 
@@ -190,7 +201,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-content>\r\n  <!-- Login -->\r\n  <div class=\"ion-padding-vertical lol\">\r\n    <ion-card class=\"ion-text-center ion-padding-vertical ion-padding-horizontal tarjeta\">\r\n      <ion-card-title class=\"ion-text-center titulo \">\r\n        <ion-label> \r\n          <h2 > Complete la información <br>\r\n            para cambiar la contraseña </h2>\r\n          <br>\r\n        </ion-label>\r\n      </ion-card-title>\r\n      <ion-card-content>\r\n        <ion-item class=\"item\">\r\n          <ion-label position=\"floating\">Usuario</ion-label>\r\n          <ion-input type=\"text\" [(ngModel)]=\"usuario.nombreUsuario\"></ion-input>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label position=\"floating\">Nueva Contraseña</ion-label>\r\n          <ion-input type=\"password\" [(ngModel)]=\"usuario.newPass\"></ion-input>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label position=\"floating\">Confirmar Contraseña</ion-label>\r\n          <ion-input type=\"password\" [(ngModel)]=\"usuario.confirmarPass\"></ion-input>\r\n        </ion-item>\r\n        <ion-row >\r\n          <ion-col size=\"12\" >\r\n            <br>\r\n            <ion-button color=\"light\" shape=\"block\"  (click)=\"cambiarPass()\">Cambiar contraseña</ion-button>\r\n          </ion-col>\r\n        </ion-row>\r\n      </ion-card-content>\r\n    </ion-card>\r\n  </div>\r\n</ion-content>\r\n");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header>\r\n  <!-- Titulo --> \r\n  <ion-toolbar color=\"primary\">\r\n    <ion-title class=\"titulo\" >\r\n      RegistrAPP\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <!-- Login -->\r\n  <div class=\"ion-padding-vertical lol\">\r\n    <ion-card class=\"ion-text-center ion-padding-vertical ion-padding-horizontal tarjeta\">\r\n      <ion-card-title class=\"ion-text-center titulo \">\r\n        <ion-label> \r\n          <h2 > Complete la información <br>\r\n            para cambiar la contraseña </h2>\r\n          <br>\r\n        </ion-label>\r\n      </ion-card-title>\r\n      <ion-card-content>\r\n        <ion-item class=\"item\">\r\n          <ion-label position=\"floating\">Usuario</ion-label>\r\n          <ion-input type=\"text\" [(ngModel)]=\"usuario.nombreUsuario\"></ion-input>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label position=\"floating\">Nueva Contraseña</ion-label>\r\n          <ion-input type=\"password\" [(ngModel)]=\"usuario.newPass\"></ion-input>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label position=\"floating\">Confirmar Contraseña</ion-label>\r\n          <ion-input type=\"password\" [(ngModel)]=\"usuario.confirmarPass\"></ion-input>\r\n        </ion-item>\r\n        <ion-row >\r\n          <ion-col size=\"12\" >\r\n            <br>\r\n            <ion-button color=\"primary\" shape=\"block\"  (click)=\"cambiarPass()\">Cambiar contraseña</ion-button>\r\n          </ion-col>\r\n        </ion-row>\r\n      </ion-card-content>\r\n    </ion-card>\r\n  </div>\r\n</ion-content>\r\n");
 
 /***/ })
 

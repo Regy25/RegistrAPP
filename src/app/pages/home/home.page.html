@@ -1,12 +1,17 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title class="titulo" >
+    <ion-title class="home-titulo" >
       RegistrAPP
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-title class="ion-padding-top">
+    <ion-label>
+      <h1 class="ion-text-center" *ngIf="usuario">¡Bienvenido {{ usuario.nombreUsuario }}!</h1>
+    </ion-label>
+  </ion-title>
   <input #fileinput type="file" accept="image/*;capture=camera" hidden (change)="handleFile($event.target.files)">
   <ion-button expand="full" (click)="captureImage()">
     <ion-icon slot="start" name="camera"></ion-icon>

@@ -24,7 +24,7 @@ export class RecuperarPage implements OnInit {
 
   ngOnInit(): void {
     this.animationCtrl.create()
-      .addElement(document.querySelector('.titulo'))
+      .addElement(document.querySelector('.recuperar-titulo'))
       .duration(2000)
       .iterations(Infinity)
       .fromTo('transform', 'translateX(0px)', 'translateX(300px)')

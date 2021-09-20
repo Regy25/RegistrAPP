@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1632069539972,
+  "timestamp": 1632179710691,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -179,10 +179,10 @@
     "/polyfills-dom.js": "8b515843a7ee8dc40a27be833c14d2684546503f",
     "/polyfills.js": "8ce852a68bba1141684aed7a39952cd51fa10dac",
     "/runtime.js": "6e2bf73bc6a23e33532922fe43ea8fcbb07f750c",
-    "/src_app_pages_home_home_module_ts.js": "c94d5657829e8ddeb1dd9ce00c5c09c25363f216",
-    "/src_app_pages_login_login_module_ts.js": "0ff263b066fb7bd1a9ceaf94e8a7b62ff925954a",
-    "/src_app_pages_recuperar_recuperar_module_ts.js": "4555d70dfa721aee7b7415585da8b8596dc22b1f",
-    "/styles.css": "809f447732f1d9d27164480cfbf58b07d7385bf5",
+    "/src_app_pages_home_home_module_ts.js": "44df9b969c9a89dfc8d712271bbf160b321dc835",
+    "/src_app_pages_login_login_module_ts.js": "7eab147e77cc6c47eaa0aa8f49de68331a806f43",
+    "/src_app_pages_recuperar_recuperar_module_ts.js": "4fa4240ba5ed7d43c27528fb6bbe1c46b3bec0fe",
+    "/styles.css": "86bd42d117ee13cc402b6e7171362c660d3a508e",
     "/vendor.js": "bd09b2abb5cb68e3fedc173bffaf91f474730fdb"
   },
   "navigationUrls": [

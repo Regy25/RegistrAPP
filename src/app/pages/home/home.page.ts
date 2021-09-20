@@ -51,7 +51,7 @@ export class HomePage {
 
   ngOnInit() {
     this.animationCtrl.create()
-      .addElement(document.querySelector('.titulo'))
+      .addElement(document.querySelector('.home-titulo'))
       .duration(2000)
       .iterations(Infinity)
       .fromTo('transform', 'translateX(0px)', 'translateX(300px)')

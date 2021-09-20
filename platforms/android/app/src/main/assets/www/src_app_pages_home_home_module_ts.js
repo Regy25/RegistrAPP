@@ -10201,10 +10201,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tslib */ 4762);
 /* harmony import */ var _raw_loader_home_page_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !raw-loader!./home.page.html */ 8102);
 /* harmony import */ var _home_page_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./home.page.scss */ 7603);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 7716);
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ 476);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ 476);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ 9895);
 /* harmony import */ var jsqr__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jsqr */ 482);
 /* harmony import */ var jsqr__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jsqr__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 
@@ -10214,7 +10216,9 @@ __webpack_require__.r(__webpack_exports__);
 // importacion animaciones
 
 let HomePage = class HomePage {
-    constructor(toastCtrl, loadingCtrl, plt, animationCtrl) {
+    constructor(router, activeroute, toastCtrl, loadingCtrl, plt, animationCtrl) {
+        this.router = router;
+        this.activeroute = activeroute;
         this.toastCtrl = toastCtrl;
         this.loadingCtrl = loadingCtrl;
         this.plt = plt;
@@ -10222,6 +10226,15 @@ let HomePage = class HomePage {
         this.scanActive = false;
         this.scanResult = null;
         this.loading = null;
+        this.activeroute.queryParams.subscribe(params => {
+            if (this.router.getCurrentNavigation().extras.state) {
+                this.usuario = this.router.getCurrentNavigation().extras.state.user;
+                console.log(this.usuario);
+            }
+            else {
+                this.router.navigate(['/login']);
+            }
+        });
         const isInStandaloneMode = () => 'standalone' in window.navigator && window.navigator['standalone'];
         if (this.plt.is('ios') && isInStandaloneMode()) {
             console.log('I am a an iOS PWA!');
@@ -10248,6 +10261,7 @@ let HomePage = class HomePage {
             const toast = yield this.toastCtrl.create({
                 message: `Open ${this.scanResult}?`,
                 position: 'top',
+                duration: 4000,
                 buttons: [
                     {
                         text: 'Open',
@@ -10333,18 +10347,20 @@ let HomePage = class HomePage {
     }
 };
 HomePage.ctorParameters = () => [
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__.ToastController },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__.LoadingController },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__.Platform },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__.AnimationController }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__.Router },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__.ActivatedRoute },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.ToastController },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.LoadingController },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.Platform },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.AnimationController }
 ];
 HomePage.propDecorators = {
-    video: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_5__.ViewChild, args: ['video', { static: false },] }],
-    canvas: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_5__.ViewChild, args: ['canvas', { static: false },] }],
-    fileinput: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_5__.ViewChild, args: ['fileinput', { static: false },] }]
+    video: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_6__.ViewChild, args: ['video', { static: false },] }],
+    canvas: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_6__.ViewChild, args: ['canvas', { static: false },] }],
+    fileinput: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_6__.ViewChild, args: ['fileinput', { static: false },] }]
 };
 HomePage = (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_5__.Component)({
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_6__.Component)({
         selector: 'app-home',
         template: _raw_loader_home_page_html__WEBPACK_IMPORTED_MODULE_0__.default,
         styles: [_home_page_scss__WEBPACK_IMPORTED_MODULE_1__.default]
@@ -10381,7 +10397,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header>\r\n  <ion-toolbar color=\"primary\">\r\n    <ion-title class=\"titulo\" >\r\n      Ionic QR Scanner\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <!-- Fallback for iOS PWA -->\r\n  <input #fileinput type=\"file\" accept=\"image/*;capture=camera\" hidden (change)=\"handleFile($event.target.files)\">\r\n\r\n  <!-- Trigger the file input -->\r\n  <ion-button expand=\"full\" (click)=\"captureImage()\">\r\n    <ion-icon slot=\"start\" name=\"camera\"></ion-icon>\r\n    Capture Image\r\n  </ion-button>\r\n\r\n  <ion-button expand=\"full\" (click)=\"startScan()\">\r\n    <ion-icon slot=\"start\" name=\"qr-scanner\"></ion-icon>\r\n    Start scan\r\n  </ion-button>\r\n\r\n  <ion-button expand=\"full\" (click)=\"reset()\" color=\"warning\" *ngIf=\"scanResult\">\r\n    <ion-icon slot=\"start\" name=\"refresh\"></ion-icon>\r\n    Reset\r\n  </ion-button>\r\n\r\n  <!-- Shows our camera stream -->\r\n  <video #video [hidden]=\"!scanActive\" width=\"100%\"></video>\r\n\r\n  <!-- Used to render the camera stream images -->\r\n  <canvas #canvas hidden></canvas>\r\n\r\n  <!-- Stop our scanner preview if active -->\r\n  <ion-button expand=\"full\" (click)=\"stopScan()\" color=\"danger\" *ngIf=\"scanActive\">\r\n    <ion-icon slot=\"start\" name=\"close\"></ion-icon>\r\n    Stop scan\r\n  </ion-button>\r\n\r\n  <ion-card *ngIf=\"scanResult\">\r\n    <ion-card-header>\r\n      <ion-card-title>QR Code</ion-card-title>\r\n    </ion-card-header>\r\n    <ion-card-content>\r\n      {{ scanResult }}\r\n    </ion-card-content>\r\n  </ion-card>\r\n\r\n</ion-content>");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header>\r\n  <ion-toolbar color=\"primary\">\r\n    <ion-title class=\"titulo\" >\r\n      RegistrAPP\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-title class=\"ion-padding-top\">\r\n    <ion-label>\r\n      <h1 class=\"ion-text-center\" *ngIf=\"usuario\">¡Bienvenido {{ usuario.nombreUsuario }}!</h1>\r\n    </ion-label>\r\n  </ion-title>\r\n  <input #fileinput type=\"file\" accept=\"image/*;capture=camera\" hidden (change)=\"handleFile($event.target.files)\">\r\n  <ion-button expand=\"full\" (click)=\"captureImage()\">\r\n    <ion-icon slot=\"start\" name=\"camera\"></ion-icon>\r\n    Capturar imagen\r\n  </ion-button>\r\n  <ion-button expand=\"full\" (click)=\"startScan()\">\r\n    <ion-icon slot=\"start\" name=\"qr-scanner\"></ion-icon>\r\n    Iniciar Escaneo\r\n  </ion-button>\r\n  <ion-button expand=\"full\" (click)=\"reset()\" color=\"warning\" *ngIf=\"scanResult\">\r\n    <ion-icon slot=\"start\" name=\"refresh\"></ion-icon>\r\n    Volver a Escanear\r\n  </ion-button>\r\n\r\n  <video #video [hidden]=\"!scanActive\" width=\"100%\"></video>\r\n\r\n  <canvas #canvas hidden></canvas>\r\n\r\n  <ion-button expand=\"full\" (click)=\"stopScan()\" color=\"danger\" *ngIf=\"scanActive\">\r\n    <ion-icon slot=\"start\" name=\"close\"></ion-icon>\r\n    Detener Escaneo\r\n  </ion-button>\r\n\r\n  <ion-card *ngIf=\"scanResult\">\r\n    <ion-card-header>\r\n      <ion-card-title>Código QR</ion-card-title>\r\n    </ion-card-header>\r\n    <ion-card-content>\r\n      {{ scanResult }}\r\n    </ion-card-content>\r\n  </ion-card>\r\n\r\n</ion-content>");
 
 /***/ })
 

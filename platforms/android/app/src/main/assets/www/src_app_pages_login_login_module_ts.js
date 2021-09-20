@@ -134,6 +134,13 @@ let LoginPage = class LoginPage {
         // this.usuario.nombreUsuario = 'Jose';
         // this.usuario.password = '1234';
         // this.ingresar();
+        this.animationCtrl.create()
+            .addElement(document.querySelector('.titulo'))
+            .duration(2000)
+            .iterations(Infinity)
+            .fromTo('transform', 'translateX(0px)', 'translateX(300px)')
+            .fromTo('opacity', '1', '0.2')
+            .play();
         this.qrScanner.prepare()
             .then((status) => status.authorized);
     }
@@ -154,10 +161,10 @@ let LoginPage = class LoginPage {
                 .play();
             return;
         }
-        this.mostrarMensaje('Bienvenido!');
+        this.mostrarMensaje('Bienvenido ' + this.usuario.nombreUsuario + '!');
         const navigationExtras = {
             state: {
-                usuario: this.usuario
+                user: this.usuario
             }
         };
         this.router.navigate(['/home'], navigationExtras);
@@ -225,7 +232,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-content>\r\n  <!-- Titulo -->\r\n  <ion-title class=\"ion-padding-top ion-text-center\">\r\n    <ion-label>\r\n          <ion-img src=\"../../../assets/images/Logo.png\" alt=\"logo\" style=\"width: 90px;object-fit: cover;\"></ion-img>\r\n    </ion-label>\r\n  </ion-title>\r\n  <!-- Login -->\r\n  <div class=\"ion-padding-vertical\">\r\n    <ion-card class=\"ion-text-center ion-padding-vertical\">\r\n      <ion-card-title class=\"ion-text-center\">\r\n        <ion-label>\r\n          <h2 >¡Inicie Sesion para <br>\r\n            registrar Asistencia!</h2>\r\n          <br>\r\n        </ion-label>\r\n      </ion-card-title>\r\n      <ion-card-content>\r\n        <ion-item>\r\n          <ion-label class=\"usuario\">Usuario:</ion-label>\r\n          <ion-input type=\"text\" [(ngModel)]=\"usuario.nombreUsuario\"></ion-input>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label class=\"contraseña\">Contraseña:</ion-label>\r\n          <ion-input type=\"password\" [(ngModel)]=\"usuario.password\"></ion-input>\r\n        </ion-item>\r\n        <ion-row>\r\n          <ion-col size=\"12\">\r\n            <br>\r\n            <ion-button shape=\"block\" (click)=\"ingresar()\">Iniciar Sesion</ion-button>\r\n          </ion-col>\r\n        </ion-row>\r\n      </ion-card-content>\r\n      <ion-label>\r\n        <br>\r\n        <a [routerLink]=\"['../recuperar']\">Recuperar</a>\r\n      </ion-label>\r\n    </ion-card>\r\n  </div>\r\n</ion-content>");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header>\r\n  <!-- Titulo --> \r\n  <ion-toolbar color=\"primary\">\r\n    <ion-title class=\"titulo\" >\r\n      RegistrAPP\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <!-- Login -->\r\n  <div class=\"ion-padding-vertical\">\r\n    <ion-card class=\"ion-text-center ion-padding-vertical\">\r\n      <ion-card-title class=\"ion-text-center\">\r\n        <ion-label>\r\n          <h2 >¡Iniciar Sesión!</h2>\r\n          <br>\r\n        </ion-label>\r\n      </ion-card-title>\r\n      <ion-card-content>\r\n        <ion-item>\r\n          <ion-label class=\"usuario\">Usuario:</ion-label>\r\n          <ion-input type=\"text\" [(ngModel)]=\"usuario.nombreUsuario\"></ion-input>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label class=\"contraseña\">Contraseña:</ion-label>\r\n          <ion-input type=\"password\" [(ngModel)]=\"usuario.password\"></ion-input>\r\n        </ion-item>\r\n        <ion-row>\r\n          <ion-col size=\"12\">\r\n            <br>\r\n            <ion-button shape=\"block\" (click)=\"ingresar()\">Iniciar Sesión</ion-button>\r\n          </ion-col>\r\n        </ion-row>\r\n      </ion-card-content>\r\n      <ion-label>\r\n        <br>\r\n        <a [routerLink]=\"['../recuperar']\">Recuperar Contraseña</a>\r\n      </ion-label>\r\n    </ion-card>\r\n  </div>\r\n</ion-content>");
 
 /***/ })
 
