@@ -15,15 +15,15 @@
     </ion-label>
   </ion-title>
   <input #fileinput type="file" accept="image/*;capture=camera" hidden (change)="handleFile($event.target.files)">
-  <ion-button expand="full" color="secondary" (click)="captureImage()">
+  <ion-button expand="full" color="secondary" shape="block" (click)="captureImage()">
     <ion-icon slot="start" name="camera"></ion-icon>
     Capturar imagen
   </ion-button>
-  <ion-button expand="full" color="secondary" (click)="startScan()">
+  <ion-button expand="full" color="secondary" shape="block" (click)="startScan()">
     <ion-icon slot="start" name="qr-scanner"></ion-icon>
     Iniciar Escaneo
   </ion-button>
-  <ion-button  expand="full" color="secondary" (click)="reset()" color="warning" *ngIf="scanResult">
+  <ion-button  expand="full" (click)="reset()" shape="block" color="warning" *ngIf="scanResult">
     <ion-icon slot="start" name="refresh"></ion-icon>
     Volver a Escanear
   </ion-button>
@@ -32,7 +32,7 @@
 
   <canvas #canvas hidden></canvas>
 
-  <ion-button expand="full" (click)="stopScan()" color="danger" *ngIf="scanActive">
+  <ion-button expand="full" (click)="stopScan()" color="danger" shape="block" *ngIf="scanActive">
     <ion-icon slot="start" name="close"></ion-icon>
     Detener Escaneo
   </ion-button>
